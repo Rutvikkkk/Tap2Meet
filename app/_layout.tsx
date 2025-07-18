@@ -4,6 +4,7 @@ import LoadingScreen from "../components/LoadingScreen";
 import { useEffect } from "react";
 import { useRouter, useSegments } from "expo-router";
 import './global.css'
+import { useFrameworkReady } from '@/hooks/useFrameworkReady'
 
 function RootLayoutNav() {
   const { user, loading } = useAuth();
@@ -27,6 +28,7 @@ function RootLayoutNav() {
     }
   }, [user, loading, segments]);
 export default function RootLayout() {
+  useFrameworkReady();
   return (
     <AuthProvider>
       <RootLayoutNav />
