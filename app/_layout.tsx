@@ -27,14 +27,6 @@ function RootLayoutNav() {
       router.replace('/auth');
     }
   }, [user, loading, segments]);
-export default function RootLayout() {
-  useFrameworkReady();
-  return (
-    <AuthProvider>
-      <RootLayoutNav />
-    </AuthProvider>
-  );
-}
 
   if (loading) {
     return <LoadingScreen />;
@@ -45,5 +37,15 @@ export default function RootLayout() {
       <Stack.Screen name="auth" />
       <Stack.Screen name="(tabs)" />
     </Stack>
+  );
+}
+
+export default function RootLayout() {
+  useFrameworkReady();
+  
+  return (
+    <AuthProvider>
+      <RootLayoutNav />
+    </AuthProvider>
   );
 }
